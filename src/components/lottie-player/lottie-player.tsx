@@ -145,8 +145,7 @@ export class LottiePlayer {
             // Initialize lottie player and load animation
             this._lottie = lottie.loadAnimation({
                 ...options,
-                [srcAttrib]: srcParsed,
-                setLocationHref: lottie.setLocationHref(href)
+                [srcAttrib]: srcParsed
             });
         } catch (err) {
             this.currentState = PlayerState.Error;
@@ -243,6 +242,10 @@ export class LottiePlayer {
                 this.play();
             }
         }
+    }
+    @Method()
+    async setLocationHref(href) {
+       lottie.setLocationHref(href)
     }
 
     /**
